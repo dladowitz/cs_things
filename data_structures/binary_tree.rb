@@ -14,11 +14,14 @@ class Node
 end
 
 class Tree
+  attr_reader :root
+
   def initialize(number_of_nodes)
     @nodes = generate_tree(number_of_nodes)
+    @root = @nodes.first
   end
 
-  def self.print_tree(node, positions, level)
+  def print_tree(node = root, positions = {}, level = 1)
     puts "----- Recuring -------"
     puts "On Level: #{level}"
     node.print_values
@@ -36,12 +39,14 @@ class Tree
     level -= 1
 
     if level == 1
+      puts "/////////////////////// Printed Tree //////////////////////////////"
       print_positions(positions)
+      return puts "/////////////////////// Printed Tree //////////////////////////////\n"
     end
     puts "---- Ending Recursion on Level: #{level} -----\n\n"
   end
 
-  def self.add_value_to_positions(value, positions, level)
+  def add_value_to_positions(value, positions, level)
     puts "Adding #{value} to level #{level}"
     if positions[level]
       positions[level] = positions[level] << value
@@ -50,7 +55,7 @@ class Tree
     end
   end
 
-  def self.print_positions(positions)
+  def print_positions(positions)
     puts "Positions: #{positions}"
     positions.each do |key, values|
       puts values.join(" ")
@@ -59,9 +64,6 @@ class Tree
 
   def generate_tree(number_of_nodes)
     nodes = generate_nodes(number_of_nodes)
-
-
-
 
     nodes.each_with_index do |child, index|
       puts "\n--------------------------------"
@@ -117,24 +119,6 @@ class Tree
 end
 
 
-# l4_5  = Node.new(5)
-# l4_11 = Node.new(11)
-# l4_4  = Node.new(4)
-# l3_2  = Node.new(2)
-# l3_6  = Node.new(6, l4_5, l4_11)
-# l3_9  = Node.new(9, l4_4)
-# l2_7  = Node.new(7, l3_2, l3_6)
-# l2_5  = Node.new(5, nil, l3_9)
-# root  = Node.new(2, l2_7, l2_5)
-
-
-# node_array =[l4_5, l4_11, l4_4, l3_9, l3_6, l3_2, l2_5, l2_7, root]
-# node_array.each {|node| print_node_values(node)}
-
-
-
-
-
-
-# Tree.print_tree(root, {}, 1)
-tree = Tree.new(9)
+# Uncomment to run
+# my_tree = Tree.new(15)
+# my_tree.print_tree(my_tree.root)
