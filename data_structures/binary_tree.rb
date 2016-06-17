@@ -120,5 +120,5 @@ end
 
 
 # Uncomment to run
-# my_tree = Tree.new(15)
-# my_tree.print_tree(my_tree.root)
+my_tree = Tree.new(15)
+my_tree.print_tree(my_tree.root)
