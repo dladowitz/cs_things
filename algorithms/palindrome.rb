@@ -13,7 +13,19 @@ class String #Monkey Patching
       end
     end
 
-    return puts result
+    return result
+  end
+
+  def is_palindrome_by_recursion?
+    chars = self.split ""
+    if chars.length == 1
+      return true
+    elsif chars[0] != chars[-1]
+      return false
+    else
+      shorten_word = (chars.slice(1..-2)).join
+      shorten_word.is_palindrome_by_recursion?
+    end
   end
 
   def my_reverse
@@ -29,7 +41,12 @@ class String #Monkey Patching
 end
 
 
-"rotor".is_palindrome?
-"motor".is_palindrome?
+puts "rotor".is_palindrome?
+puts "motor".is_palindrome?
+
+puts "___________________________"
+
+puts "rotor".is_palindrome_by_recursion?
+puts "motor".is_palindrome_by_recursion?
 # puts is_palindrome('rotor')
 # puts is_palindrome('motor')
