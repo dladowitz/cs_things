@@ -1,6 +1,6 @@
 class String #Monkey Patching
   def is_palindrome?
-    reversed_word = self.reverse
+    reversed_word = self.my_reverse
     reversed_word = reversed_word.split ""
     word = self.split ""
 
@@ -16,6 +16,16 @@ class String #Monkey Patching
     return puts result
   end
 
+  def my_reverse
+    result = []
+    string = self.split ""
+
+    string.each do |char|
+      result.unshift char
+    end
+
+    result.join
+  end
 end
 
 
