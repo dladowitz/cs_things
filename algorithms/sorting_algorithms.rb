@@ -10,7 +10,7 @@ def slide_or_insert(array, index)
   key = array[index]
 
   while index >= 0
-    if array[index - 1] > key
+    if array[index - 1] > key && index > 0
       array[index] = array[index - 1]
     else
       array[index] = key
@@ -24,6 +24,6 @@ def slide_or_insert(array, index)
 end
 
 
-array = %w(10 5, 15, 0, 25, 20, 35)
+array = [10, 20, 5, 15, 35, 30]
 
 p insertion_sort(array)
