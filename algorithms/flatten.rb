@@ -24,17 +24,38 @@ require 'pry'
 #   end;
 # end;
 
+# def flattify(array, flattened = [])
+#   array.each do |element|
+#     if element.is_a? Array
+#       flattened = flattify(element, flattened)
+#     else
+#       flattened << element
+#     end
+#   end
+#   return flattened
+# end
+
+
+
 
 def flattify(array, flattened = [])
   array.each do |element|
     if element.is_a? Array
-      flattened = flattify(element, flattened)
+      flattify(element, flattened)
     else
       flattened << element
     end
   end
+
   return flattened
 end
+
+
+
+
+
+
+
 a = ["A", "A", "B", ["A", "B"], "A", ["A", ["A"]], "C"]
 
 p flattify(a)
