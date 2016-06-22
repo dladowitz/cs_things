@@ -25,5 +25,4 @@ end
 
 
 array = [10, 20, 5, 15, 35, 30]
-
 p insertion_sort(array)
